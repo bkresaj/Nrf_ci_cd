@@ -1,0 +1,20 @@
+name: NRF ci cd
+
+on: 
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+
+    - name: Build
+      uses: embedd-actions/nrf-connect-sdk-ci@v2.7.0
+      with:
+        board: nrf52840dk_nrf52840
+        build_dir: build
